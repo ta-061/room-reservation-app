@@ -1,24 +1,7 @@
-# Ignore Mac system files
-.DS_Store
-
-# Ignore node_modules directory
-node_modules/
-
-# Ignore log files and temp files
-log/
-tmp/
-
-# Ignore Rails specific files
-/coverage/
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/public/system
-/public/uploads
-
-# Ignore specific directories
-classroom-reservation-client/node_modules/
-classroom-reservation-api/tmp/
-classroom-reservation-api/log/
-
-git add classroom-reservation-client
-git add classroom-reservation-api
+touch README.md
+touch .gitignore
+echo "node_modules/" >> .gitignore
+echo "log/" >> .gitignore
+echo "tmp/" >> .gitignore
+echo "coverage/" >> .gitignore
+echo ".DS_Store" >> .gitignore
