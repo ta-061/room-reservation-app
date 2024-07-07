@@ -19,3 +19,6 @@ tmp/
 classroom-reservation-client/node_modules/
 classroom-reservation-api/tmp/
 classroom-reservation-api/log/
+
+git add classroom-reservation-client
+git add classroom-reservation-api
