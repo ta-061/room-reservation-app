@@ -1,1 +1,1 @@
-# room_reservation_app
+# room-reservation-app
