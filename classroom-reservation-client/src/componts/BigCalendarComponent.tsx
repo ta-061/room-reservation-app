@@ -29,7 +29,7 @@ const classroomOptions = [
   { id: 5, title: 'PBL室241', color: '#d87cdd' }
 ];
 
-const BigCalendarComponent: React.FC<BigCalendarComponentProps> = ({ reservations, refreshReservations }) => {
+const BigCalendarComponent: React.FC<BigCalendarComponentProps> = ({ reservations = [], refreshReservations }) => {
   const [selectedSlot, setSelectedSlot] = useState<{ start: Date, end: Date, resourceId: number } | null>(null);
   const [selectedReservation, setSelectedReservation] = useState<{ id: number, details: Reservation } | null>(null);
   const [error, setError] = useState<string | null>(null);

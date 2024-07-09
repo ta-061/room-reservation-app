@@ -45,5 +45,7 @@ group :development do
   # gem "spring"
 end
 
+gem 'dotenv-rails'
+
 
 gem "bcrypt", "~> 3.1"
