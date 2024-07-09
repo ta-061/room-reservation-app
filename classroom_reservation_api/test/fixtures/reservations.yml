@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  reservation_id: 1
+  classroom_name: MyString
+  start_time: 2024-07-06 01:34:51
+  end_time: 2024-07-06 01:34:51
+  user_name: MyString
+  password_digest: MyString
+
+two:
+  reservation_id: 1
+  classroom_name: MyString
+  start_time: 2024-07-06 01:34:51
+  end_time: 2024-07-06 01:34:51
+  user_name: MyString
+  password_digest: MyString
