@@ -9,3 +9,4 @@ echo "classroom-reservation-client/.next" >> .gitignore
 echo "classroom-reservation-client/out" >> .gitignore
 echo "classroom_reservation_api/tmp" >> .gitignore
 echo "classroom_reservation_api/log" >> .gitignore
+
