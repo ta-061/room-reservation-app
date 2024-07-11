@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       post 'authenticate', to: 'authentication#authenticate'
     end
   end
+  # すべての他のリクエストに対して404を返す
+  match '*path', to: 'application#route_not_found', via: :all
 end
