@@ -3,6 +3,7 @@ touch .gitignore
 .DS_Store
 classroom-reservation-client/.next
 classroom-reservation-client/node_modules
+classroom-reservation-client/.env.local
 classroom_reservation_api/tmp
 classroom_reservation_api/log
 classroom_reservation_api/.env
