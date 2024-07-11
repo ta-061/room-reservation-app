@@ -33,7 +33,7 @@ const CalendarPage: React.FC = () => {
 
   const authenticate = async (password: string) => {
     try {
-      const response = await fetch('http://localhost:3001/api/v1/authenticate', {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/authenticate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const CalendarPage: React.FC = () => {
 
   const fetchReservations = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/v1/reservations');
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/reservations`);
       const data = await response.json();
       setReservations(data);
     } catch (error) {

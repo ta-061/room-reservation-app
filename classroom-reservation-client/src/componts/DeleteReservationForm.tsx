@@ -27,7 +27,7 @@ const DeleteReservationForm: React.FC<DeleteReservationFormProps> = ({ reservati
     }
 
     try {
-      const response = await fetch(`http://localhost:3001/api/v1/reservations/${reservationId}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/reservations/${reservationId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json'
