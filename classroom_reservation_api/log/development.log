@@ -6923,3 +6923,74 @@ Processing by Api::V1::ReservationsController#index as */*
 Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 748)
 
 
+[dotenv] Set [36mADMIN_PASSWORD[0m, [36mSECRET_PASSWORD[0m, and [36mFRONTEND_URL[0m
+[dotenv] Loaded [33m.env[0m
+Started GET "/" for 127.0.0.1 at 2024-07-11 14:56:56 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/tatuya/.rbenv/versions/3.3.3/lib/ruby/gems/3.3.0/gems/railties-7.1.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/tatuya/.rbenv/versions/3.3.3/lib/ruby/gems/3.3.0/gems/railties-7.1.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.4ms | Allocations: 362)
+Completed 200 OK in 10ms (Views: 3.3ms | ActiveRecord: 0.0ms | Allocations: 4120)
+
+
+Started POST "/api/v1/authenticate" for ::1 at 2024-07-11 14:57:17 +0900
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"password"=>"[FILTERED]", "authentication"=>{"password"=>"[FILTERED]"}}
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.0ms | Allocations: 247)
+
+
+Started POST "/api/v1/authenticate" for ::1 at 2024-07-11 14:57:18 +0900
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"password"=>"[FILTERED]", "authentication"=>{"password"=>"[FILTERED]"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 64)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-11 14:57:18 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.3ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 28ms (Views: 13.9ms | ActiveRecord: 2.4ms | Allocations: 20187)
+
+
+Started DELETE "/api/v1/reservations/60" for ::1 at 2024-07-11 14:57:24 +0900
+Processing by Api::V1::ReservationsController#destroy as */*
+  Parameters: {"password"=>"[FILTERED]", "id"=>"60", "reservation"=>{}}
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 60], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:39:in `set_reservation'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mReservation Destroy (0.5ms)[0m  [1m[31mDELETE FROM "reservations" WHERE "reservations"."id" = ?[0m  [["id", 60]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 2628)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-11 14:57:24 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.0ms | Allocations: 655)
+
+
+Started DELETE "/api/v1/reservations/61" for ::1 at 2024-07-11 14:57:28 +0900
+Processing by Api::V1::ReservationsController#destroy as */*
+  Parameters: {"password"=>"[FILTERED]", "id"=>"61", "reservation"=>{}}
+  [1m[36mReservation Load (0.2ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 61], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:39:in `set_reservation'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mReservation Destroy (0.7ms)[0m  [1m[31mDELETE FROM "reservations" WHERE "reservations"."id" = ?[0m  [["id", 61]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 1611)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-11 14:57:28 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.1ms | Allocations: 553)
+
+
