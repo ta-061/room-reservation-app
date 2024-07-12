@@ -7133,3 +7133,126 @@ Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 553)
 [dotenv] Set [36mFRONTEND_URL[0m
 [dotenv] Loaded [33m.env[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT version();[0m
+[dotenv] Set [36mFRONTEND_URL[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mFRONTEND_URL[0m
+[dotenv] Loaded [33m.env[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (0.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2024-07-13 00:15:27.482284', '2024-07-13 00:15:27.482285') RETURNING "key"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReservations (20240706010536)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_name" varchar, "classroom_name" varchar, "start_time" datetime(6), "end_time" datetime(6), "password_digest" varchar, "classroom_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20240706010536') RETURNING "version"[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+[dotenv] Set [36mFRONTEND_URL[0m
+[dotenv] Loaded [33m.env[0m
+[dotenv] Set [36mADMIN_PASSWORD[0m, [36mSECRET_PASSWORD[0m, and [36mFRONTEND_URL[0m
+[dotenv] Loaded [33m.env[0m
+Started POST "/api/v1/authenticate" for ::1 at 2024-07-13 00:16:22 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"password"=>"[FILTERED]", "authentication"=>{"password"=>"[FILTERED]"}}
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 2416)
+
+
+Started POST "/api/v1/authenticate" for ::1 at 2024-07-13 00:16:23 +0900
+Processing by Api::V1::AuthenticationController#authenticate as */*
+  Parameters: {"password"=>"[FILTERED]", "authentication"=>{"password"=>"[FILTERED]"}}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms | Allocations: 63)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-13 00:16:23 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 1.3ms | Allocations: 6897)
+
+
+Started POST "/api/v1/reservations" for ::1 at 2024-07-13 00:16:28 +0900
+Processing by Api::V1::ReservationsController#create as */*
+  Parameters: {"reservation"=>{"user_name"=>"t", "classroom_id"=>1, "classroom_name"=>"実験室221", "start_time"=>"2024-07-09T11:30", "end_time"=>"2024-07-09T14:00", "password"=>"[FILTERED]"}}
+  [1m[36mReservation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."classroom_id" = ? AND (start_time < '2024-07-09 14:00:00' AND end_time > '2024-07-09 11:30:00') LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:49:in `overlapping_reservation_exists?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:18:in `create'
+  [1m[36mReservation Create (1.4ms)[0m  [1m[32mINSERT INTO "reservations" ("user_name", "classroom_name", "start_time", "end_time", "password_digest", "classroom_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_name", "t"], ["classroom_name", "実験室221"], ["start_time", "2024-07-09 11:30:00"], ["end_time", "2024-07-09 14:00:00"], ["password_digest", "[FILTERED]"], ["classroom_id", 1], ["created_at", "2024-07-13 00:16:28.537079"], ["updated_at", "2024-07-13 00:16:28.537079"]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:18:in `create'
+Completed 201 Created in 313ms (Views: 0.2ms | ActiveRecord: 2.4ms | Allocations: 18403)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-13 00:16:28 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.1ms | ActiveRecord: 0.1ms | Allocations: 717)
+
+
+Started DELETE "/api/v1/reservations/1" for ::1 at 2024-07-13 00:16:31 +0900
+Processing by Api::V1::ReservationsController#destroy as */*
+  Parameters: {"password"=>"[FILTERED]", "id"=>"1", "reservation"=>{}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:39:in `set_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mReservation Destroy (1.3ms)[0m  [1m[31mDELETE FROM "reservations" WHERE "reservations"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+Completed 200 OK in 253ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 1966)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-13 00:16:31 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.0ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 553)
+
+
+Started POST "/api/v1/reservations" for ::1 at 2024-07-13 00:16:36 +0900
+Processing by Api::V1::ReservationsController#create as */*
+  Parameters: {"reservation"=>{"user_name"=>"t", "classroom_id"=>1, "classroom_name"=>"実験室221", "start_time"=>"2024-07-09T10:00", "end_time"=>"2024-07-09T14:30", "password"=>"[FILTERED]"}}
+  [1m[36mReservation Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "reservations" WHERE "reservations"."classroom_id" = ? AND (start_time < '2024-07-09 14:30:00' AND end_time > '2024-07-09 10:00:00') LIMIT ?[0m  [["classroom_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:49:in `overlapping_reservation_exists?'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:18:in `create'
+  [1m[36mReservation Create (1.3ms)[0m  [1m[32mINSERT INTO "reservations" ("user_name", "classroom_name", "start_time", "end_time", "password_digest", "classroom_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?) RETURNING "id"[0m  [["user_name", "t"], ["classroom_name", "実験室221"], ["start_time", "2024-07-09 10:00:00"], ["end_time", "2024-07-09 14:30:00"], ["password_digest", "[FILTERED]"], ["classroom_id", 1], ["created_at", "2024-07-13 00:16:36.696343"], ["updated_at", "2024-07-13 00:16:36.696343"]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:18:in `create'
+Completed 201 Created in 305ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2319)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-13 00:16:36 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 655)
+
+
+Started DELETE "/api/v1/reservations/2" for ::1 at 2024-07-13 00:16:43 +0900
+Processing by Api::V1::ReservationsController#destroy as */*
+  Parameters: {"password"=>"[FILTERED]", "id"=>"2", "reservation"=>{}}
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations" WHERE "reservations"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:39:in `set_reservation'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mReservation Destroy (0.8ms)[0m  [1m[31mDELETE FROM "reservations" WHERE "reservations"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:29:in `destroy'
+Completed 200 OK in 3ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 1608)
+
+
+Started GET "/api/v1/reservations" for ::1 at 2024-07-13 00:16:43 +0900
+Processing by Api::V1::ReservationsController#index as */*
+  [1m[36mReservation Load (0.1ms)[0m  [1m[34mSELECT "reservations".* FROM "reservations"[0m
+  ↳ app/controllers/api/v1/reservations_controller.rb:8:in `index'
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 553)
+
+

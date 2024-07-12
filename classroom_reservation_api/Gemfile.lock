@@ -122,6 +122,7 @@ GEM
     minitest (5.24.1)
     msgpack (1.7.2)
     mutex_m (0.2.0)
+    mysql2 (0.5.6)
     net-imap (0.4.14)
       date
       net-protocol
@@ -142,7 +143,6 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
       racc (~> 1.4)
-    pg (1.5.6)
     psych (5.1.2)
       stringio
     puma (6.4.2)
@@ -216,9 +216,9 @@ DEPENDENCIES
   bootsnap
   debug
   dotenv-rails
+  mysql2 (~> 0.5.6)
   net-pop!
   net-protocol (>= 0.2.2)
-  pg (~> 1.1)
   puma (>= 5.0)
   rack-cors
   rails (~> 7.1.3, >= 7.1.3.4)
