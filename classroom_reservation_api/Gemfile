@@ -51,3 +51,4 @@ gem 'dotenv-rails'
 gem "bcrypt", "~> 3.1"
 gem 'net-protocol', '>= 0.2.2'
 gem "net-pop", github: "ruby/net-pop"
+gem 'stringio', '~> 3.0'
