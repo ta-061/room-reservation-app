@@ -22,4 +22,10 @@ test:
 
 production:
   <<: *default
-  database: storage/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: myapp_production
+  username: myapp
+  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  host: <your_production_db_host>
+  port: <your_production_db_port>
