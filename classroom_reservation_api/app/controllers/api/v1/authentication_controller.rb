@@ -3,6 +3,9 @@ class Api::V1::AuthenticationController < ApplicationController
 
   def authenticate
     if params[:password] == SECRET_PASSWORD
+      Rails.logger.debug "SECRET_PASSWORD: #{SECRET_PASSWORD.inspect}"
+      Rails.logger.debug "Params password: #{params[:password].inspect}"
+      
       render json: { message: 'Authenticated' }, status: :ok
     else
       render json: { error: 'Invalid password' }, status: :unauthorized
