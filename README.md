@@ -3,87 +3,9 @@
 
 このリポジトリは、教室予約システムのフロントエンド（Next.js）とバックエンド（Ruby on Rails）を含んでいます。
 
-## プロジェクト構成
-room-reservation-app/
-├── classroom-reservation-client # Next.jsプロジェクト
-│ ├── package.json
-│ ├── next.config.js
-│ ├── src/
-│ └── ... (その他のNext.jsプロジェクトファイル)
-└── classroom_reservation_api # Railsプロジェクト
-├── Gemfile
-├── config/
-├── app/
-└── ... (その他のRailsプロジェクトファイル)
-
-## 環境設定
-
 ### フロントエンド (Next.js)
-
-1. リポジトリをクローンします:
-
-    ```sh
-    git clone https://github.com/ta-061/room-reservation-app.git
-    cd room-reservation-app/classroom-reservation-client
-    ```
-
-2. 依存関係をインストールします:
-
-    ```sh
-    npm install
-    ```
-
-3. 環境変数を設定します:
-
-    プロジェクトのルートディレクトリに`.env.local`ファイルを作成し、以下の内容を追加します:
-
-    ```plaintext
-    NEXT_PUBLIC_API_URL=https://your-production-api-url.com
-    ```
-
-4. 開発サーバーを起動します:
-
-    ```sh
-    npm run dev
-    ```
-
 ### バックエンド (Ruby on Rails)
 
-1. リポジトリをクローンします:
-
-    ```sh
-    git clone https://github.com/ta-061/room-reservation-app.git
-    cd room-reservation-app/classroom_reservation_api
-    ```
-
-2. 依存関係をインストールします:
-
-    ```sh
-    bundle install
-    ```
-
-3. データベースを設定します:
-
-    ```sh
-    rails db:create
-    rails db:migrate
-    ```
-
-4. 環境変数を設定します:
-
-    プロジェクトのルートディレクトリに`.env`ファイルを作成し、以下の内容を追加します:
-
-    ```plaintext
-    ADMIN_PASSWORD=your_admin_password
-    SECRET_PASSWORD=your_secret_password
-    FRONTEND_URL=https://your-production-frontend-url.com
-    ```
-
-5. 開発サーバーを起動します:
-
-    ```sh
-    rails server
-    ```
 
 ## デプロイ
 
