@@ -26,7 +26,7 @@ const classroomOptions = [
   { id: 2, title: 'ゼミ室222', color: '#e6a23c' },
   { id: 3, title: '実験室231', color: '#5cb87a' },
   { id: 4, title: '演習室241', color: '#409eff' },
-  { id: 5, title: 'PBL室241', color: '#d87cdd' }
+  { id: 5, title: 'PBL室242', color: '#d87cdd' }
 ];
 
 const BigCalendarComponent: React.FC<BigCalendarComponentProps> = ({ reservations = [], refreshReservations }) => {
