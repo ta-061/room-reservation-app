@@ -73,8 +73,10 @@ const DeleteReservationForm: React.FC<DeleteReservationFormProps> = ({ reservati
         パスワード:
         <input type="password" value={password} onChange={e => setPassword(e.target.value)} />
       </label>
-      <button type="button" onClick={handleCancel}>戻る</button>
-      <button onClick={handleDelete}>削除する</button>
+      <div>
+        <button className="button" type="button" onClick={handleCancel}>戻る</button>
+        <button className="button" onClick={handleDelete}>削除する</button>
+      </div>
     </div>
   );
 };
