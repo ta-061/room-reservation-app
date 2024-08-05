@@ -80,6 +80,9 @@ const CreateReservationForm: React.FC<CreateReservationFormProps> = ({ selectedS
       }
     }
   };
+  const handleCancel = () => {
+    window.location.reload(); // ページをリロードする
+  };
 
   return (
     selectedSlot && (
@@ -111,6 +114,7 @@ const CreateReservationForm: React.FC<CreateReservationFormProps> = ({ selectedS
             パスワード:
             <input type="password" name="password" value={formData.password} onChange={handleChange} />
           </label>
+          <button type="button" onClick={handleCancel}>使い方に戻る</button>
           <button type="submit">予約する</button>
         </form>
       </div>
